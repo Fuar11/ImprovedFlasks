@@ -45,8 +45,18 @@ namespace ImprovedFlasks.Utilities
 
                 if (flaskItem.TryRemoveItem(consumable.m_GearItem))
                 {
-                    GameManager.GetPlayerManagerComponent().UseFoodInventoryItem(consumable.m_GearItem);
+                    PlayerManager pm = GameManager.GetPlayerManagerComponent();
+
+                    pm.UseFoodInventoryItem(consumable.m_GearItem);
                     Main.Logger.Log($"{consumable.name} consumed.", ComplexLogger.FlaggedLoggingLevel.Debug);
+
+                    if (!pm.ShouldDestroyFoodAfterEating(pm.m_FoodItemEaten))
+                    {
+                        if (flaskItem.TryAddItem(pm.m_FoodItemEaten))
+                        {
+                            Main.Logger.Log($"{consumable.name} not fully consumed, added back into flask.", ComplexLogger.FlaggedLoggingLevel.Debug);
+                        }
+                    }
                 }
             }
             else
