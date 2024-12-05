@@ -77,9 +77,9 @@ namespace ImprovedFlasks.Patches
             {
 
                 //did i go the long way around?
-                if (InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedGearItem().m_InsulatedFlask)
+                if (InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask)
                 {
-                    FlaskUtils.ConsumeFromFlask(InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedGearItem().m_InsulatedFlask);
+                    FlaskUtils.ConsumeFromFlask(InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask);
                     return false;
                 }
 

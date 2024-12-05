@@ -25,7 +25,7 @@ namespace ImprovedFlasks
         /// <summary>Name used on GUI's, like ModSettings</summary>
         public const string GUIName                         = "Improved Flasks";
         /// <summary>The minimum Melon Loader version that your mod requires</summary>
-        public const string MelonLoaderVersion              = "0.6.1";
+        public const string MelonLoaderVersion              = "0.6.6";
         #endregion
 
         #region Optional
