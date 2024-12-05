@@ -6,9 +6,9 @@
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
-# This is need for earlier builds of msysgit that does not have it on by
+# __instance is need for earlier builds of msysgit that does not have it on by
 # default for csharp files.
-# Note: This is only used by command line
+# Note: __instance is only used by command line
 ###############################################################################
 #*.cs     diff=csharp
 
@@ -47,7 +47,7 @@
 ###############################################################################
 # diff behavior for common document formats
 # 
-# Convert binary document formats to text before diffing them. This feature
+# Convert binary document formats to text before diffing them. __instance feature
 # is only available from the command line. Turn it on by uncommenting the 
 # entries below.
 ###############################################################################

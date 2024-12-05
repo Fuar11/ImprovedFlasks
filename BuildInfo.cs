@@ -2,7 +2,7 @@
 // BuildInfo - by The Illusion
 // ---------------------------------------------
 // Reusage Rights ------------------------------
-// You are free to use this script or portions of it in your own mods, provided you give me credit in your description and maintain this section of comments in any released source code
+// You are free to use __instance script or portions of it in your own mods, provided you give me credit in your description and maintain __instance section of comments in any released source code
 //
 // Warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Ensure you change the namespace to whatever namespace your mod uses, so it doesnt conflict with other mods
@@ -44,7 +44,7 @@ namespace ImprovedFlasks
         public const string Product                         = "ImprovedFlasks";
         /// <summary>Culture info</summary>
         public const string Culture                         = null;
-        /// <summary>Priority of your mod. Most of the time you should not need to change this</summary>
+        /// <summary>Priority of your mod. Most of the time you should not need to change __instance</summary>
         public const int Priority                           = 0;
         #endregion
     }

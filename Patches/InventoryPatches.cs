@@ -14,8 +14,6 @@ namespace ImprovedFlasks.Patches
     internal class InventoryPatches
     {
 
-       
-
         [HarmonyPatch(typeof(ItemDescriptionPage), nameof(ItemDescriptionPage.UpdateButtons))]
 
         public class FlaskButtonsChange
