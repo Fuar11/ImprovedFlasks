@@ -19,31 +19,23 @@ namespace ImprovedFlasks.Patches
         public class FlaskButtonsChange
         {
 
-            static Vector3 defaultPosition1 = new Vector3(0.48f, -0.5925f, 0f);
-            static Vector3 defaultPosition2 = new Vector3(0.8393f, -0.5925f, 0f);
-            static bool buttonSwapped = false;
+          
             public static void Postfix(ItemDescriptionPage __instance, ref GearItem gi)
             {
 
                 if (gi.m_InsulatedFlask)
                 {
-                    __instance.m_MouseButtonEquip.gameObject.GetComponent<UIButtonOffset>().enabled = false;
 
-                    if (!buttonSwapped)
-                    {
-                        Transform ButtonPosition1 = __instance.m_MouseButtonEquip.gameObject.transform;
-                        Transform ButtonPosition2 = __instance.m_MouseButtonExamine.gameObject.transform;
 
-                        Vector3 tempPosition = ButtonPosition1.position;
+                    //drink button is enabled
+                    __instance.m_Label_MouseButtonEquip.text = "Drink";
 
-                        ButtonPosition1.position = ButtonPosition2.position;
-                        ButtonPosition2.position = tempPosition;
-                        buttonSwapped = true;
-                    }
-
-                    //drink button is enabled and moves to the first position
+                    //transfer button is enabled
                     __instance.m_MouseButtonExamine.SetActive(true);
-                    __instance.m_Label_MouseButtonExamine.text = "Drink";
+                    __instance.m_Label_MouseButtonExamine.text = "Transfer";
+
+                    //swap button functionality
+                    __instance.m_OnActionsDelegate = __instance.m_OnEquipDelegate;
 
                     UIButton[] components = __instance.m_MouseButtonExamine.GetComponents<UIButton>();
                     for (int i = 0; i < components.Length; i++)
@@ -51,30 +43,17 @@ namespace ImprovedFlasks.Patches
                         components[i].isEnabled = true;
                     }
                 }
-                else
-                {
-                    
-                    Transform ButtonPosition1 = __instance.m_MouseButtonEquip.gameObject.transform;
-                    Transform ButtonPosition2 = __instance.m_MouseButtonExamine.gameObject.transform;
-
-                    ButtonPosition1.position = defaultPosition1;
-                    ButtonPosition2.position = defaultPosition2;
-                    buttonSwapped = false;
-
-                    __instance.m_MouseButtonExamine.gameObject.GetComponent<UIButtonOffset>().enabled = false;
-                }
             }
         }
 
-        [HarmonyPatch(typeof(ItemDescriptionPage), nameof(ItemDescriptionPage.OnActions))]
+        [HarmonyPatch(typeof(ItemDescriptionPage), nameof(ItemDescriptionPage.OnEquip))]
 
-        public class OverrideButtonOnClickForFlask
+        public class OverrideDrinkButtonOnClickForFlask
         {
 
             public static bool Prefix(ItemDescriptionPage __instance)
             {
 
-                //did i go the long way around?
                 if (InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask)
                 {
                     FlaskUtils.ConsumeFromFlask(InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask);
@@ -85,6 +64,5 @@ namespace ImprovedFlasks.Patches
             }
 
         }
-
     }
 }
