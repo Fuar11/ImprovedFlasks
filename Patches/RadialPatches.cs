@@ -79,5 +79,22 @@ namespace ImprovedFlasks.Patches
                 }
             }
         }
+
+        [HarmonyPatch(typeof(RadialMenuArm), nameof(RadialMenuArm.SetRadialInfoGear))]
+
+        public class AddDrinkNameToRadialItem
+        {
+
+            public static void Postfix(RadialMenuArm __instance)
+            {
+
+                if (__instance.m_GearItem.m_InsulatedFlask)
+                {
+                    __instance.m_NameWhenHoveredOver = __instance.m_GearItem.m_InsulatedFlask.m_Items[0].m_GearItem.DisplayName.Replace("Cup of", "");
+                }
+            }
+
+        }
+
     }
 }
