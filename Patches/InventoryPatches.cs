@@ -25,8 +25,6 @@ namespace ImprovedFlasks.Patches
 
                 if (gi.m_InsulatedFlask)
                 {
-
-
                     //drink button is enabled
                     __instance.m_Label_MouseButtonEquip.text = "Drink";
 
@@ -54,10 +52,14 @@ namespace ImprovedFlasks.Patches
             public static bool Prefix(ItemDescriptionPage __instance)
             {
 
-                if (InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask)
+                if (InterfaceManager.GetPanel<Panel_Inventory>().isActiveAndEnabled)
                 {
-                    FlaskUtils.ConsumeFromFlask(InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask);
-                    return false;
+                    if (InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask)
+                    {
+                        FlaskUtils.ConsumeFromFlask(InterfaceManager.GetPanel<Panel_Inventory>().GetCurrentlySelectedItem().m_GearItem.m_InsulatedFlask);
+                        return false;
+                    }
+                    return true;
                 }
 
                 return true;
