@@ -25,11 +25,11 @@ namespace ImprovedFlasks.Patches
                 if (gi.m_InsulatedFlask)
                 {
                     //drink button is enabled
-                    __instance.m_Label_MouseButtonEquip.text = "Drink";
+                    __instance.m_Label_MouseButtonEquip.text = "饮用";
 
                     //transfer button is enabled
                     __instance.m_MouseButtonExamine.SetActive(true);
-                    __instance.m_Label_MouseButtonExamine.text = "Transfer";
+                    __instance.m_Label_MouseButtonExamine.text = "转移";
 
                     //swap button functionality
                     __instance.m_OnActionsDelegate = __instance.m_OnEquipDelegate;
