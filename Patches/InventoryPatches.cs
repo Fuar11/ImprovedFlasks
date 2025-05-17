@@ -18,10 +18,9 @@ namespace ImprovedFlasks.Patches
 
         public class FlaskButtonsChange
         {
-
-          
             public static void Postfix(ItemDescriptionPage __instance, ref GearItem gi)
             {
+                if (gi == null) return;
 
                 if (gi.m_InsulatedFlask)
                 {
