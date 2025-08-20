@@ -17,7 +17,7 @@ namespace ImprovedFlasks.Patches
         {
             if (__result) // flask is near fire
             {
-                __instance.m_HeatPercent += (float)0.08; // Gradual heating speed
+                __instance.m_HeatPercent = 100;
 
                 MelonLogger.Msg($"[HeatPatches] Heated flask {__instance.name} to {__instance.m_HeatPercent} near fire");
             }
