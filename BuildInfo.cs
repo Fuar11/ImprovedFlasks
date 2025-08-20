@@ -19,9 +19,9 @@ namespace ImprovedFlasks
         /// <summary>The machine readable name of the mod (no special characters or spaces)</summary>
         public const string Name                            = "ImprovedFlasks";
         /// <summary>Who made the mod</summary>
-        public const string Author                          = "Fuar";
+        public const string Author                          = "Fuar & Bluedarkness";
         /// <summary>Current version (Using Major.Minor.Build) </summary>
-        public const string Version                         = "1.2.2";
+        public const string Version                         = "1.3.0";
         /// <summary>Name used on GUI's, like ModSettings</summary>
         public const string GUIName                         = "Improved Flasks";
         /// <summary>The minimum Melon Loader version that your mod requires</summary>
