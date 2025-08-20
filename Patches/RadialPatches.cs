@@ -7,7 +7,6 @@ using Il2Cpp;
 using HarmonyLib;
 using Il2CppTLD.IntBackedUnit;
 using ImprovedFlasks.Utilities;
-using Unity.VisualScripting;
 
 namespace ImprovedFlasks.Patches
 {
