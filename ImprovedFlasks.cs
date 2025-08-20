@@ -8,7 +8,7 @@ namespace ImprovedFlasks
         internal static ComplexLogger<Main> Logger = new();
         public override void OnInitializeMelon()
         {
-            Logger.Log("Improved Flasks is online.", FlaggedLoggingLevel.None);   
+            Logger.Log("Improved Flasks is online.", FlaggedLoggingLevel.None);
         }
     }
 }

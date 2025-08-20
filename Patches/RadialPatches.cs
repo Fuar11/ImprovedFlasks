@@ -7,6 +7,7 @@ using Il2Cpp;
 using HarmonyLib;
 using Il2CppTLD.IntBackedUnit;
 using ImprovedFlasks.Utilities;
+using Unity.VisualScripting;
 
 namespace ImprovedFlasks.Patches
 {
@@ -87,14 +88,27 @@ namespace ImprovedFlasks.Patches
 
             public static void Postfix(RadialMenuArm __instance)
             {
-
                 if (__instance.m_GearItem.m_InsulatedFlask)
                 {
-                    __instance.m_NameWhenHoveredOver = __instance.m_GearItem.m_InsulatedFlask.m_Items[0].m_GearItem.DisplayName.Replace("Cup of", "");
+                    __instance.m_NameWhenHoveredOver = __instance.m_GearItem.m_InsulatedFlask.m_Items[0].m_GearItem.DisplayName.Replace("cup of", "");
+
+                    if (__instance.m_GearItem.m_InsulatedFlask.m_HeatPercent > 0) { __instance.m_NameWhenHoveredOver = "Hot " + __instance.m_NameWhenHoveredOver; }
+                    else { __instance.m_NameWhenHoveredOver = "Cold " + __instance.m_NameWhenHoveredOver; }
                 }
             }
-
         }
 
+    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.CanPlaceFromRadial), new Type[] { typeof(GearItem) })]
+        public class AddPlacementActionToRadial
+        {
+            public static void Postfix(GearItem gi, ref bool __result)
+            {
+                if (gi.m_InsulatedFlask)
+                {
+                    __result = true;
+                }
+                
+            }
+        }
     }
 }
