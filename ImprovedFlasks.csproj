@@ -21,17 +21,7 @@
 	<!-- List of used references -->
 	<ItemGroup>
 		<!-- __instance is the base reference. MUST EXIST -->
-		<PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.40.0" />
-		<!-- __instance is only if you use the ModSettings -->
-		<PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" />
-		<!-- Only if you need ModComponent -->
-		<PackageReference Include="STBlade.Modding.TLD.ModComponent" Version="6.0.1" />
-		<!-- Only if you need LocalizationUtilities -->
-		<PackageReference Include="STBlade.Modding.TLD.LocalizationUtilities" Version="2.0.0" />
-		<!-- Only if you need CraftingRevisions  -->
-		<PackageReference Include="STBlade.Modding.TLD.CraftingRevisions" Version="2.0.1" />
-		<!-- Only if you need GearSpawner -->
-		<PackageReference Include="STBlade.Modding.TLD.GearSpawner" Version="2.3.1" />
+		<PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.51.0" />
 		<!-- Only if you need ModData  -->
 		<PackageReference Include="STBlade.Modding.TLD.ModData" Version="1.5.1" />
 	</ItemGroup>
@@ -39,6 +29,12 @@
 	<ItemGroup>
 		<Reference Include="ComplexLogger">
 			<HintPath>$(TheLongDarkPath)\Mods\ComplexLogger.dll</HintPath>
+		</Reference>
+		<Reference Include="ModSettings">
+			<HintPath>$(TheLongDarkPath)\Mods\ModSettings.dll</HintPath>
+		</Reference>
+	<Reference Include="ModComponent">
+			<HintPath>$(TheLongDarkPath)\Mods\ModComponent.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	
