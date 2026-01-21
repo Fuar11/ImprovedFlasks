@@ -22,7 +22,7 @@ namespace ImprovedFlasks.Utilities
             if (items.Count == 0)
             {
                 GameAudioManager.PlayGUIError();
-                HUDMessage.AddMessage("Flask is empty.");
+                HUDMessage.AddMessage("保温瓶是空的.");
                 return;
             }
 
